@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        levelText.text = "After " + level + " days, you starved.";
+        levelText.text = "After " + level + " days, you starved. \n press esc to exit.";
         levelImage.SetActive(true);
         enabled = false;
     }
@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         if (playersTurn || enemiesMoving || doingSetup)
         {
             return;
